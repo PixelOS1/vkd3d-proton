@@ -917,6 +917,10 @@ static inline struct d3d12_resource *impl_from_ID3D12Resource(ID3D12Resource *if
     return impl_from_ID3D12Resource2((ID3D12Resource2 *)iface);
 }
 
+HRESULT d3d12_reserved_resource_create(struct d3d12_device *device,
+        const D3D12_RESOURCE_DESC *desc, D3D12_RESOURCE_STATES initial_state,
+        const D3D12_CLEAR_VALUE *optimized_clear_value, struct d3d12_resource **resource) DECLSPEC_HIDDEN;
+
 HRESULT vkd3d_allocate_device_memory(struct d3d12_device *device,
         VkDeviceSize size, VkMemoryPropertyFlags type_flags, uint32_t type_mask,
         void *pNext, struct vkd3d_device_memory_allocation *allocation);
